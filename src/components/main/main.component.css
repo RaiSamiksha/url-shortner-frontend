@@ -1,0 +1,47 @@
+.header{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    background: #040404 ;
+    margin-top: 0%;
+    color: white;
+    padding: 0.2em;
+    align-items: center;
+}
+.content-wrapper{
+    background-color: #2AFEB7;
+}
+.logout-button,.shorten-button, .copy-button {
+    background-color: #545252;
+    border-radius: 20px; 
+    padding: 10px 20px; 
+    font-size: 16px; 
+    font-weight: bold; 
+    margin-left: 10px; 
+    color: #fff;
+}
+table{
+   background-color: lightgrey;
+}
+.short-url-display{
+    text-align: center;
+}
+form {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    padding: 5%;
+    align-items: baseline;
+  } 
+mat-form-field {
+    flex: 1; 
+  }
+button {
+    margin-left: 10px; 
+  }
+h2{
+   text-align: center;
+  }
+.table-data, .table-head{
+   text-align: center;
+  }

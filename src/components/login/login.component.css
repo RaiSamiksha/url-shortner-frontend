@@ -1,0 +1,34 @@
+/* Center the card on the page */
+.login-card {
+    max-width: 400px; /* Limit the width of the card */
+    margin: 50px auto; /* Center the card vertically and horizontally */
+    padding: 20px; /* Add padding inside the card */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Add a subtle shadow for depth */
+    border-radius: 8px; /* Rounded corners for the card */
+  }
+  
+  /* Style for form fields */
+  mat-form-field {
+    width: 100%; /* Make the form fields take full width */
+    margin-bottom: 20px; /* Space between fields */
+  }
+  
+  /* Button styles */
+  button {
+    width: 100%; /* Make the button take full width */
+  }
+  
+  /* Style for error messages */
+  .error-message {
+    color: red; /* Red color for error messages */
+    margin-top: 10px; /* Space above the error message */
+  }
+  
+  /* Media query for responsive design */
+  @media (max-width: 600px) {
+    .login-card {
+      margin: 20px; /* Reduce margin on smaller screens */
+      padding: 15px; /* Adjust padding */
+    }
+  }
+  

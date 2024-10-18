@@ -1,0 +1,63 @@
+<div class="container">
+  <div class="header">
+    <h2 class="d-inline">LinkLite</h2>
+    <button  class="ml-2 logout-button" (click)="onLogout()">Logout</button>
+  </div>
+
+  <!-- Centered content wrapper -->
+  <div class="content-wrapper">
+    <!-- Form using Angular Material -->
+    <form [formGroup]="urlForm" (ngSubmit)="onSubmit()">
+      <mat-form-field appearance="outline" class="full-width">
+        <mat-label>Enter URL to shorten</mat-label>
+        <input matInput type="url" id="longUrl" formControlName="longUrl" placeholder="Enter your long URL">
+      </mat-form-field>
+      <button class="shorten-button" color="primary" type="submit" [disabled]="urlForm.invalid">Shorten</button>
+    </form>
+
+    <!-- Short URL Display -->
+    <div *ngIf="shortUrl" class="short-url-display mt-3">
+      <p>Short URL: <a [href]="shortUrl" target="_blank">{{ shortUrl }}</a></p>
+    </div>
+
+    <!-- Table of User URLs -->
+    <h2>Generated urls by you</h2>
+    <div class="mt-5" *ngIf="userUrls.length > 0">
+      <table mat-table [dataSource]="userUrls" class="mat-elevation-z8" multiTemplateDataRows>
+
+        <!-- Original URL Column -->
+        <ng-container matColumnDef="original">
+          <th class="table-head" mat-header-cell *matHeaderCellDef>Original URL</th>
+          <td class="table-data" mat-cell *matCellDef="let url">
+            <a [href]="url.original" target="_blank">{{ url.original }}</a>
+          </td>
+        </ng-container>
+
+        <!-- Short URL Column -->
+        <div class="short-url">
+        <ng-container matColumnDef="short">
+          <th class="table-head" mat-header-cell *matHeaderCellDef>Short URL</th>
+          <td class="table-data" mat-cell *matCellDef="let url">
+            <a [href]="url.short" target="_blank">{{ url.short }}</a>
+          </td>
+        </ng-container>
+      </div>
+
+        <!-- Copy Button Column -->
+        <ng-container matColumnDef="action">
+          <th class="table-head" mat-header-cell *matHeaderCellDef>Action</th>
+          <td class="table-data" mat-cell *matCellDef="let url">
+            <button class="copy-button" color="accent" (click)="copyToClipboard(url.short)">Copy</button>
+          </td>
+        </ng-container>
+
+        <!-- Header and Row Definitions -->
+        <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+        <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+
+      </table>
+    </div>
+
+    <p *ngIf="userUrls.length === 0">No URLs have been generated yet.</p>
+  </div>
+</div>
