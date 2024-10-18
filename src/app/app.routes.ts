@@ -9,10 +9,10 @@ import { CookieService } from 'ngx-cookie-service';
 
 // Define your routes
 export const routes: Routes = [
+  { path: '', component: SignupComponent },
   { path: 'signup', component: SignupComponent },
   { path: 'login', component: LoginComponent},
   { path: 'main', component: MainComponent, canActivate: [authGuard]},
-  { path: '', redirectTo: '/home', pathMatch: 'full' },
 ];
 
 export function authGuard() {
