@@ -5,7 +5,7 @@ import {
   withInterceptors,
   withInterceptorsFromDi,
 } from '@angular/common/http';
-import { provideRouter } from '@angular/router';
+import { provideRouter, withHashLocation } from '@angular/router';
 import { routes } from './app.routes'; // Define your app routes in app.routes.ts
 import { provideAnimationsAsync } from '@angular/platform-browser/animations/async'; // Ensure this path is correct based on your setup
 import { AuthInterceptor } from '../interceptors/interceptors/auth.interceptor';
@@ -15,7 +15,7 @@ export const appConfig: ApplicationConfig = {
     provideZoneChangeDetection({ eventCoalescing: true }),
     // interceptor
 
-    provideRouter(routes),
+    provideRouter(routes, withHashLocation()),
     provideAnimationsAsync(),
     provideHttpClient(withInterceptorsFromDi()), // Enable fetch API
     {
